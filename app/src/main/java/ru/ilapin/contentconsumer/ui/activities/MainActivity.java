@@ -1,6 +1,7 @@
-package ru.ilapin.contentconsumer;
+package ru.ilapin.contentconsumer.ui.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -11,10 +12,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import ru.ilapin.contentconsumer.R;
 import ru.ilapin.contentconsumer.providers.CitiesContract;
 
 
@@ -26,7 +30,7 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
 	private CitiesAdapter mAdapter;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		Log.d(TAG, "onCreate");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -38,6 +42,22 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
 		mRecyclerView.setAdapter(mAdapter);
 
 		getSupportLoaderManager().initLoader(0, null, this);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		if (item.getItemId() == R.id.action_image) {
+			startActivity(new Intent(this, ImageActivity.class));
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -70,11 +90,11 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
 		private Cursor mCursor;
 		private final Context mContext;
 
-		private CitiesAdapter(Context context) {
+		private CitiesAdapter(final Context context) {
 			this.mContext = context;
 		}
 
-		public void setCursor(Cursor cursor) {
+		public void setCursor(final Cursor cursor) {
 			this.mCursor = cursor;
 			notifyDataSetChanged();
 		}

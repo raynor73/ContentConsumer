@@ -4,5 +4,6 @@
     <string name="app_name">Content Consumer</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+	<string name="get_image">Получить картинку</string>
 
 </resources>

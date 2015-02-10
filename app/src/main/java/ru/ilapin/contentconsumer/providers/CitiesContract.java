@@ -21,6 +21,7 @@ public final class CitiesContract {
 
 		public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, "cities");
 		public static final Uri CAPITALS_CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, "capitals");
+		public static final Uri IMAGE_URI = Uri.withAppendedPath(AUTHORITY_URI, "image");
 
 		public static final String _ID = "_ID";
 		public static final String NAME = "name";

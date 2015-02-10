@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  @file activity_image.xml
+  @author ilapin
+
+  Copyright (c) 2004-2014. Parallels IP Holdings GmbH. All rights reserved.
+  http://www.parallels.com
+-->
+<FrameLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	<ImageView
+		android:id="@+id/image_view"
+		android:layout_gravity="center"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"/>
+
+	<ProgressBar
+		android:id="@+id/progress_bar"
+		style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+		android:layout_gravity="center"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
+</FrameLayout>
